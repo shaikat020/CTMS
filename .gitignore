@@ -114,3 +114,8 @@ local_settings.py
 .env
 db.sqlite3
 .venv
+
+
+#qr_code
+qr_codes/
+/qr_codes/
