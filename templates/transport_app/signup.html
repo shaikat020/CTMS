@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h2>Sign Up</h2>
+
+<!-- If you want Django to handle form directly instead of React, you'd do this: -->
+<form method="POST" action="{% url 'register_user' %}">
+  {% csrf_token %}
+  <label for="name">Name:</label>
+  <input type="text" name="name" id="name" required>
+
+  <label for="email">Email:</label>
+  <input type="email" name="email" id="email" required>
+
+  <label for="role">Role:</label>
+  <select name="role" id="role">
+    <option value="student">Student</option>
+    <option value="staff">Staff</option>
+    <option value="faculty">Faculty</option>
+  </select>
+
+  <label for="password">Password:</label>
+  <input type="password" name="password" id="password" required>
+
+  <button type="submit">Register</button>
+</form>
+{% endblock content %}

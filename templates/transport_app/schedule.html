@@ -1,0 +1,22 @@
+{% extends 'transport_app/base.html' %}
+
+{% block content %}
+<h2>Transport Schedule</h2>
+
+{% if schedules %}
+    <ul>
+        {% for schedule in schedules %}
+            <li>
+                <strong>{{ schedule.title }}</strong><br>
+                {{ schedule.description }}<br>
+                <strong>Date:</strong> {{ schedule.date }} | <strong>Time:</strong> {{ schedule.time }}<br>
+                <small>Last Updated: {{ schedule.updated_at }}</small>
+            </li>
+            <hr>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No schedule updates available.</p>
+{% endif %}
+
+{% endblock %}

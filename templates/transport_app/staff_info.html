@@ -1,0 +1,33 @@
+<!-- Back_end/templates/transport_app/staff_info.html -->
+
+{% extends 'transport_app/base.html' %}
+
+{% block content %}
+<h2>Staff and Faculty Information</h2>
+<table border="1" cellpadding="10">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>ID Number</th>
+            <th>Level</th>
+            <th>Term</th>
+            <th>Contact Information</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for member in staff_members %}
+        <tr>
+            <td>{{ member.name }}</td>
+            <td>{{ member.email }}</td>
+            <td>{{ member.get_role_display }}</td>
+            <td>{{ member.id_number }}</td>
+            <td>{{ member.get_level_display }}</td>
+            <td>{{ member.get_term_display }}</td>
+            <td>{{ member.contact_information }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

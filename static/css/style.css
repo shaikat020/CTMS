@@ -1,0 +1,477 @@
+/* transport_app/static/transport_app/css/style.css */
+
+header {
+  display: flex;
+  align-items: center; /* Aligns items vertically */
+  justify-content: space-between;
+  padding: 5px 20px; /* Reduce top padding to move everything up */
+  background-color: #002000; /* Dark green background */
+  position: relative;
+  height: 130px; /* Adjust header height */
+}
+
+/* Background Styling */
+.hero {
+  background: transparent !important;
+  
+}
+
+
+/* Dark Overlay Effect */
+/* Remove or adjust the dark overlay */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2); /* Change opacity (0.2 for very light overlay) */
+  z-index: 1;
+}
+
+
+.hero img {
+  filter: none !important; /* Ensures no color filters are applied */
+}
+
+
+
+/* Hero Content */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+/* Headings */
+.hero h1 {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.hero h2 {
+    font-size: 38px;
+    font-weight: bold;
+}
+
+/* Paragraph */
+.hero p {
+    font-size: 18px;
+    margin-top: 10px;
+    color: white;
+}
+
+
+header h1 {
+  flex-grow: 1;
+  text-align: center;
+  margin-top: 5px; /* Adjust positioning */
+  font-size: 40px;
+  color: black; /* Make title black */
+}
+
+h1 {
+  flex-grow: 1;
+  text-align: center;
+  margin-top: 5px; /* Adjust positioning */
+  font-size: 40px;
+  color: white; /* Make title black */
+}
+
+nav a {
+  color: black !important; /* Change text color to black */
+  text-decoration: none;
+  font-size: 18px;
+  padding: 5px 10px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+  color: #333; /* Slightly darker shade on hover */
+}
+
+p {
+  flex-grow: 1;
+  
+  margin-top: 5px; /* Adjust positioning */
+  /* font-size: 40px; */
+  color: black; /* Make title black */
+}
+
+
+body {
+  position: relative;
+  background-image: url('../images/hero3.jpg');
+  margin: 0px;
+  padding: 0px;
+  /* background:linear-gradient(rgba(8,0,58,0.7),rgba(8,0,58,0.7)),
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0; */
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Dark overlay with 60% opacity */
+  z-index: -1;
+}
+
+.container {
+  color: white;
+    padding:70px;
+    margin: 20px auto;
+    width: 90%;
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    backdrop-filter: blur(5px);
+    border-radius: 10px; /* Smooth rounded edges */
+    border: 5px solid;
+    border-image: linear-gradient(to right, white, rgba(255, 255, 255, 0.7)) 1;
+}
+
+
+
+.logo img {
+  display: block;
+  margin-right: 20px; /* Adds spacing between the image and title */
+}
+
+header {
+  background-color: #ffffff;
+  padding: 15px;
+  margin: 10px;
+  color: white;
+  text-align: center;
+}
+
+title {
+  font-size: 100px;
+}
+
+nav a {
+  margin: 0 15px;
+  color: white;
+  text-decoration: none;
+}
+
+main {
+  padding: 100px;
+}
+
+.hero{
+  width: 100%;
+  min-height: 100vh;
+      
+  
+  background:linear-gradient(rgba(8,0,58,0.7),rgba(8,0,58,0.7)), url('../../assets/hero3.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-container{
+  color: white;
+  font-size: 30px;
+}
+
+h2{
+  color: white;
+  font-size: 40px;
+}
+
+tr{
+  color: white;
+}
+
+form{
+    color: white;
+    font-size: 20px;
+  
+}
+
+select{
+  color: black;
+    font-size: 20px;
+}
+
+input{
+  color: black;
+    font-size: 20px;
+}
+
+label{
+  color: white;
+  
+}
+
+@media print {
+    body {
+        -webkit-print-color-adjust: exact !important; 
+        print-color-adjust: exact !important;
+        background-color: blue !important; /* Ensures the background prints */
+    }
+
+    .print-area {
+        background-color: rgb(86, 86, 252) !important;
+        color: white !important;
+        padding: 20px;
+        width: 100%;
+    }
+
+    body * {
+        visibility: hidden;
+    }
+
+    .print-area, .print-area * {
+        visibility: visible;
+    }
+
+    .print-area {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+}
+
+.print-area {
+  background: blue;
+  color: black;
+  padding: 20px;
+  font-size: 30px;
+}
+
+.print-area h2, .print-area h3, .print-area p {
+  color: black; /* Ensures all text is black */
+}
+/*Footer*/
+/* footer {
+  background-color: #f1f1f1;
+  padding: 5px;
+  text-align: center;
+  position: relative;
+  width: 100%;
+  bottom: 0;
+} */
+
+
+/* Footer Styling */
+/* Footer Styling */
+.footer {
+  background-color: white; /* Light gray background */
+  padding: 30px 0;
+  text-align: center;
+  width: 100%;
+  margin-top: 40px; /* Ensures space above footer */
+}
+
+/* Footer Container */
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Footer Sections */
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.footer-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: black;
+}
+
+/* Footer Links */
+.footer a {
+  color: black;
+  text-decoration: none;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Social Icons */
+.social a {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-container {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .footer-section {
+      margin-bottom: 20px;
+  }
+}
+
+/* Social Icons Styling */
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons a {
+  font-size: 20px;
+  color: black;
+  text-decoration: none;
+}
+
+.social-icons a:hover {
+  color: #007bff; /* Change to blue on hover */
+}
+
+
+
+/* General Styles */
+.auth-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-box {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-box input,
+.input-box select,
+.input-box textarea {
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #fff;
+  outline: none;
+  color: #fff;
+  font-size: 16px;
+  transition: 0.3s ease-in-out;
+}
+
+.input-box textarea {
+  resize: none;
+}
+
+.input-box label {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  transition: 0.3s ease-in-out;
+  pointer-events: none;
+}
+
+.input-box input:focus ~ label,
+.input-box input:valid ~ label,
+.input-box select:focus ~ label,
+.input-box select:valid ~ label,
+.input-box textarea:focus ~ label,
+.input-box textarea:valid ~ label {
+  top: 0;
+  left: 5px;
+  font-size: 12px;
+  color: #fff;
+}
+
+.auth-btn {
+  background: #ff6b6b;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.auth-btn:hover {
+  background: #ff4757;
+}
+
+.switch-text {
+  color: #fff;
+  margin-top: 10px;
+}
+
+.switch-text a {
+  color: #ff6b6b;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.switch-text a:hover {
+  text-decoration: underline;
+}
+
+.info p{
+  color: #fff;
+}
+
+
+
+
+/* Style for error messages */
+.messages {
+  list-style-type: none;
+  padding: 10px;
+  width: 50%;
+  margin: 10px auto;
+  text-align: center;
+}
+
+.messages li {
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.success {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.error {
+  background-color: #ff4d4d;
+  color: white;
+}

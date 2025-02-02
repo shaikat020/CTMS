@@ -1,0 +1,44 @@
+{% extends 'transport_app/base.html' %}
+
+{% block header %}
+<!-- Leave this block empty to exclude the header -->
+{% endblock header %}
+
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 2</title>
+    <script type="text/javascript">
+        window.onload = function() {
+            window.print();  // This will open the print dialog automatically
+        }
+    </script>
+</head>
+<div class="print-area">
+    <h2>CTMS(Campus Transport Management System)</h2>
+
+    <p><strong>Name:</strong> {{ user.name }}</p>
+  <!-- <p><strong>Email:</strong> {{ user.email }}</p> -->
+  <p><strong>Role:</strong> {{ user.get_role_display }}</p>
+  <p><strong>ID Number:</strong> {{ user.id_number }}</p>
+  {% if user.role == 'student' %}
+    <p><strong>Level:</strong> {{ user.level }}<strong>  Term:</strong> {{ user.term }}</p><p></p>
+  {% endif %}
+  <h3>QR Code:</h3> 
+  <img src="{{ card.qr_code.url }}" alt="QR Code" style="width: 100px;">
+    
+
+
+
+    <!-- Optional: Log Out Form -->
+    <form method="post" action="{% url 'logout_user' %}">
+        {% csrf_token %}
+        <!-- <button type="submit">Log Out</button> -->
+    </form>
+
+</div>
+
+
+  
+{% endblock content %}

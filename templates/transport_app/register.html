@@ -1,0 +1,125 @@
+{% extends 'transport_app/base.html' %}
+
+{% block content %}
+<h2>Register</h2>
+
+<!-- Display error messages -->
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+<form method="POST">
+    {% csrf_token %}
+    
+    <label for="name">Name:</label><br>
+    <input type="text" name="name" id="name" oninput="validateName(this)" required><br>
+    <p id="name-error" style="color: red; display: none;">Name can only contain letters and spaces.</p><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" name="email" required><br><br>
+
+    <label for="role">Role:</label><br>
+    <select name="role" id="role" required onchange="toggleStudentFields()">
+        <option value="" disabled selected>Select your role</option>
+        <option value="student">Student</option>
+        <option value="staff">Staff</option>
+        <option value="faculty">Faculty</option>
+    </select><br><br>
+
+    <!-- Student-only fields -->
+    <div id="student-fields" style="display: none;">
+        <label for="level">Level:</label><br>
+        <select name="level" id="level">
+            <option value="" disabled selected>Select your level</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select><br><br>
+
+        <label for="term">Term:</label><br>
+        <select name="term" id="term">
+            <option value="" disabled selected>Select your term</option>
+            <option value="I">I</option>
+            <option value="II">II</option>
+        </select><br><br>
+    </div>
+
+    <label for="id_number">ID Number:</label><br>
+    <input type="text" name="id_number" id="id_number" oninput="validateIDNumber(this)" required><br>
+    <p id="id-number-error" style="color: red; display: none;">ID Number can only contain numbers.</p><br>
+
+    <label for="contact_information">Contact Information:</label><br>
+    <textarea name="contact_information" id="contact_information" rows="4" cols="50" oninput="validateContactInfo(this)" required></textarea><br>
+    <p id="contact-info-error" style="color: red; display: none;">Contact Information can only contain numbers.</p><br>
+
+    <label for="password">Password:</label><br>
+    <input type="password" name="password" required><br><br>
+
+    <button type="submit">Register</button>
+</form>
+
+<script>
+    // Function to validate Name (only alphabetic characters and spaces)
+    function validateName(input) {
+        const regex = /^[A-Za-z\s]*$/;
+        const errorMessage = document.getElementById("name-error");
+
+        if (!regex.test(input.value)) {
+            errorMessage.style.display = "block";
+        } else {
+            errorMessage.style.display = "none";
+        }
+    }
+
+    // Function to validate ID Number (only numeric values)
+    function validateIDNumber(input) {
+        const regex = /^\d*$/;
+        const errorMessage = document.getElementById("id-number-error");
+
+        if (!regex.test(input.value)) {
+            errorMessage.style.display = "block";
+        } else {
+            errorMessage.style.display = "none";
+        }
+    }
+
+    // Function to validate Contact Information (only numeric values)
+    function validateContactInfo(input) {
+        const regex = /^\d*$/;
+        const errorMessage = document.getElementById("contact-info-error");
+
+        if (!regex.test(input.value)) {
+            errorMessage.style.display = "block";
+        } else {
+            errorMessage.style.display = "none";
+        }
+    }
+
+    // Function to toggle student fields based on role selection
+    function toggleStudentFields() {
+        const role = document.getElementById("role").value;
+        const studentFields = document.getElementById("student-fields");
+
+        if (role === "student") {
+            studentFields.style.display = "block";
+            studentFields.querySelectorAll("select").forEach((field) => {
+                field.setAttribute("required", "true");
+            });
+        } else {
+            studentFields.style.display = "none";
+            studentFields.querySelectorAll("select").forEach((field) => {
+                field.removeAttribute("required");
+            });
+        }
+    }
+
+    // Initialize visibility on page load
+    document.addEventListener("DOMContentLoaded", toggleStudentFields);
+</script>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+<!-- Back_end/templates/transport_app/profile.html -->
+
+{% extends 'transport_app/base.html' %}
+
+{% block content %}
+<h2>Your Profile</h2>
+<div class="info">
+  {% if user %}
+  <p><strong>Name:</strong> {{ user.name }}</p>
+  <p><strong>Email:</strong> {{ user.email }}</p>
+  <p><strong>Role:</strong> {{ user.get_role_display }}</p>
+  <p><strong>ID Number:</strong> {{ user.id_number }}</p>
+  {% if user.role == 'student' %}
+    <p><strong>Level:</strong> {{ user.level }}</p>
+    <p><strong>Term:</strong> {{ user.term }}</p>
+  {% endif %}
+  <p><strong>Contact Information:</strong> {{ user.contact_information }}</p>
+
+  <!-- {% if card and card.qr_code %}
+    <h3>Your Card (QR Code):</h3>
+    <img src="{{ card.qr_code.url }}" alt="QR Code" style="width:200px;">
+  {% else %}
+    <p>No QR Code generated for this user.</p> -->
+  {% endif %}
+
+  <!-- Generate Card Button -->
+  <form method="get" action="{% url 'generate_card' %}">
+      <button type="submit">Generate Card</button>
+  </form>
+{% else %}
+  <p>You are not logged in.</p>
+
+</div>
+
+{% endif %}
+{% endblock %}

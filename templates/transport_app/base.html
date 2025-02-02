@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Campus Transport Management System</title>
+        <link rel="stylesheet" href="../../static/css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    </head>
+   
+    
+<body>
+    {% block header %}
+    <header>
+        <div class="logo">
+            <img src="../../static/images/baiust.jpeg" alt="Image description" width="80" height="80">
+        </div>
+        <h1>Campus Transport Management System</h1>
+        <nav class="navbar">
+            <a href="{% url 'home' %}">Home</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'profile' %}">Profile</a>
+                <a href="{% url 'schedule' %}">Schedule</a>
+                <a href="{% url 'staff_info' %}">Staff Info</a>
+                <form method="post" action="{% url 'logout_user' %}" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" style="background:none; border:none; color:blue; cursor:pointer;">Log Out</button>
+                </form>
+            {% else %}
+                <a href="{% url 'login' %}">Login</a>
+                <a href="{% url 'register' %}">Register</a>
+            {% endif %}
+        </nav>
+    </header>
+    {% endblock header %}
+
+    <main class="container">
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% block content %}
+        <!-- Content from child templates will be injected here -->
+        {% endblock content %}
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <nav class="footer-section">
+                <h6 class="footer-title">SERVICES</h6>
+                <a href="#">Branding</a>
+                <a href="#">Design</a>
+                <a href="#">Marketing</a>
+                <a href="#">Advertisement</a>
+            </nav>
+    
+            <nav class="footer-section">
+                <h6 class="footer-title">COMPANY</h6>
+                <a href="#">About us</a>
+                <a href="#">Contact</a>
+                <a href="#">Jobs</a>
+                <a href="#">Press kit</a>
+            </nav>
+    
+            <nav class="footer-section social">
+                <h6 class="footer-title">SOCIAL</h6>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                </div>
+            </nav>
+        </div>
+    </footer>    
+</body>
+</html>
